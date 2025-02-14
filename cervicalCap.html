@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheCare</title>
+<link rel="stylesheet" type="text/css" href="implant.css">
+<script src="implant.js"></script>
+<style>
+  /* Login Container Styles (Protected Feature) */
+  .login-container {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+      }
+      .login-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 20px;
+          background: linear-gradient(135deg, #7C4DFF, #FF4081);
+          color: white;
+          text-decoration: none;
+          border-radius: 30px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+          gap: 10px;
+      }
+      .login-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(124, 77, 255, 0.4);
+          background: linear-gradient(135deg, #FF4081, #7C4DFF);
+      }
+      .user-info {
+          display: none;
+          align-items: center;
+          gap: 10px;
+          background: rgba(124,77,255,0.2);
+          padding: 10px 20px;
+          border-radius: 30px;
+          color: white;
+      }
+      .logout-btn {
+          color: #FF4081;
+          cursor: pointer;
+          font-weight: 600;
+          transition: color 0.3s ease;
+      }
+      .logout-btn:hover {
+          color: #7C4DFF;
+      }
+</style>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<header>
+  <div class="login-container">
+    <a href="auth.html" class="login-btn" id="loginButton">
+        <i class="fas fa-user"></i> Login / Sign Up
+    </a>
+    <div class="user-info" id="userInfo">
+        <span id="userEmail"></span>
+        <span class="logout-btn" id="logoutButton">Logout</span>
+    </div>
+</div>
+        <div class="logo-container">
+            <img src="SheCareLogo1.jpg" alt="SheCare" class="logo">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="protected-link"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="https://shecare.onrender.com/" class="protected-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-capsules"></i>PillPickr</a></li>
+            <li><a href="faq.html"><i class="fas fa-question-circle"></i>FAQ</a></li>
+            <li><a href="methods.html"><i class="fas fa-heartbeat"></i>Contraceptives</a></li>
+            <li><a href="oc.html" class="protected-link"><i class="fas fa-calendar-alt"></i>Track Cycle</a></li>
+            <li><a href="find_my_doctor.html" class="protected-link"><i class="fas fa-calendar-alt"></i>DocFinder</a></li>
+            <li><a href="find_my_pharmacy.html" class="protected-link"><i class="fas fa-calendar-alt"></i>FindPharm</a></li>
+            <li><a href="bot.html" class="protected-link"><i class="fas fa-comments"></i>HerBot</a></li>
+            <li><a href="https://santos21978.softr.app/" class="protected-link" target="_blank"><i class="fas fa-users"></i>Forum</a></li>
+        </ul>
+</nav>
+    </header>
+<div class="image-container">
+    <img src="bg.png" alt="Image">
+    <div class="image-text"> Cervical Cap</div>
+  </div>
+  <section class="box-section" id="box1">
+    <div class="box">
+    <div class="heading">
+      <h2>What is a cervical cap?
+      </h2>
+    </div>
+    <div class="content">
+      <p>A cervical cap is a little cup made from soft silicone and shaped like a sailor's hat. You put it deep inside your vagina to cover your cervix.<br><br>
+        The cervical cap covers your cervix, stopping sperm from joining an egg. In order for a cervical cap to work best, it must be used with spermicide (a cream or gel that kills sperm).
+    </p>
+    </div>
+    </div>
+  </section>
+  <section class="box-section" id="box2">
+    <div class="box">
+    <div class="heading">
+      <h2>What’s the difference between cervical caps and diaphragms?
+      </h2>
+    </div>
+    <div class="content">
+      <p>Cervical caps are smaller than diaphragms and the shape is a little different: diaphragms are shaped like a dish, and cervical caps look like a sailor’s hat. They both work with spermicide and cover your cervix to prevent pregnancy.<br><br>
+
+        You can leave the cervical cap in longer than a diaphragm (up to 2 days), but diaphragms are slightly more effective at preventing pregnancy. Your nurse or doctor can help you decide which one is better for you.<br><br>
+    </p>
+    </div>
+    </div>
+  </section>
+  <section class="box-section" id="box3">
+    <div class="box">
+    <div class="heading">
+      <h2>How effective are cervical caps?
+      </h2>
+    </div>
+    <div class="content">
+      <p>The cervical cap is a lot more effective if you've never given birth.<br><br>
+
+        For people who’ve never given birth, the cervical cap is 86% effective — that means that out of 100 people who use the cap, about 14 of them will get pregnant within a year.<br><br>
+        
+        For people who have given birth, the cervical cap is 71% effective — that means that out of 100 people who use the cap, about 29 of them will get pregnant within a year.<br><br>
+        
+        Like all birth control methods, the cervical cap is most effective when you use it correctly every time you have sex. If you don’t always follow the directions or use your cervical cap every single time you have sex, it won’t work as well.<br><br>
+    </p>
+    </div>
+    </div>
+  </section>
+  <section class="box-section" id="box4">
+    <div class="box">
+    <div class="heading">
+      <h2>What are the benefits of cervical caps?
+      </h2>
+    </div>
+    <div class="content">
+      <p>Cervical caps are portable, reusable, and hormone-free. They’re effective right away, and you can get pregnant as soon as you stop using it.<br><br>
+       1. Cervical caps are convenient and give you control.<br><br>
+       2.Cervical caps don’t interrupt sex.<br><br>
+        3.Cervical caps don’t have hormones.<br><br>
+       4. Cervical caps last a long time.<br><br>
+    </p>
+    </div>
+    </div>
+  </section>
+  <section class="box-section" id="box5">
+    <div class="box">
+    <div class="heading">
+      <h2>What are the disadvantages of using cervical caps?
+      </h2>
+    </div>
+    <div class="content">
+      <p>Cervical caps work best when used correctly every time you have sex, which is difficult for some people to do. Also, spermicide can have side effects.<br><br>
+        1.You have to use it every time you have sex.<br><br>
+        2.Cervical caps can be hard to use correctly.<br><br>
+        3.Spermicide may have side effects.<br><br>
+        4.Size matters.<br><br>
+    </p>
+    </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginBtn = document.getElementById('loginButton');
+      const userInfo = document.getElementById('userInfo');
+      const userEmail = document.getElementById('userEmail');
+      const logoutBtn = document.getElementById('logoutButton');
+      const protectedElements = document.querySelectorAll('.protected-link');
+
+      function checkAuth() {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const storedEmail = sessionStorage.getItem('userEmail');
+
+        if (isLoggedIn && storedEmail) {
+          loginBtn.style.display = 'none';
+          userInfo.style.display = 'flex';
+          userEmail.textContent = storedEmail;
+        } else {
+          loginBtn.style.display = 'inline-flex';
+          userInfo.style.display = 'none';
+        }
+      }
+
+      logoutBtn.addEventListener('click', function () {
+        sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('userEmail');
+        checkAuth();
+        window.location.reload();
+      });
+
+      protectedElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+          if (!sessionStorage.getItem('isLoggedIn')) {
+            e.preventDefault();
+            alert('Please login to access this feature');
+            window.location.href = 'auth.html';
+          }
+        });
+      });
+
+      checkAuth();
+    });
+  </script>
+  </body>
+  </html>

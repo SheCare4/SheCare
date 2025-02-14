@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find My Doctor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    #list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .place-item {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .place-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .place-item h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    .place-item p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .place-item a, .book-appointment {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 16px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    .place-item a:hover, .book-appointment:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find My Doctor</h1>
+  <div id="map"></div>
+  <div id="list"></div>
+  
+  <script>
+    let map;
+    let service;
+    let infowindow;
+    let userLocation;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 0, lng: 0 },
+        zoom: 13,
+      });
+      service = new google.maps.places.PlacesService(map);
+      infowindow = new google.maps.InfoWindow();
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            userLocation = new google.maps.LatLng(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+            map.setCenter(userLocation);
+            searchNearbyPlaces(userLocation);
+          },
+          (error) => {
+            alert("Error getting your location. Please enable location services.");
+            console.error(error);
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    }
+
+    function searchNearbyPlaces(location) {
+      const request = {
+        location: location,
+        radius: 5000,
+        type: "hospital",
+        keyword: "clinic OR gynecologist",
+      };
+      service.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          results.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+          displayResults(results);
+        }
+      });
+    }
+
+    function displayResults(results) {
+      const listElement = document.getElementById("list");
+      listElement.innerHTML = "";
+
+      results.forEach((place) => {
+        const placeItem = document.createElement("div");
+        placeItem.className = "place-item";
+        placeItem.innerHTML = `
+          <h3>${place.name}</h3>
+          <p>Address: ${place.vicinity}</p>
+          <p>Rating: ${place.rating || "N/A"}</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${place.geometry.location.lat()},${place.geometry.location.lng()}" target="_blank">Get Directions</a>
+          <a class="book-appointment" href="book-appointment.html?doctor=${encodeURIComponent(place.name)}">Book Appointment</a>
+        `;
+        listElement.appendChild(placeItem);
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlk3LpfE0zEmovF3GZGrl9WUYaxnjT46o&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
